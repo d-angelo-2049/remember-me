@@ -1,4 +1,4 @@
-# rememberme
+# remember-me
 
 Simple mobile application to reduce household food loss
 
