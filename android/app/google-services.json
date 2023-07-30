@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "659242521472",
+    "project_id": "food-loss-and-waste",
+    "storage_bucket": "food-loss-and-waste.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659242521472:android:c5bcaebb37d12899196765",
+        "android_client_info": {
+          "package_name": "com.example.rememberme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659242521472-jqmuj9m37amiakolfp0un6loi8puk2ug.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJYYRxYnhSlTjFbLK2gftpPaX716yIDOw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659242521472-jqmuj9m37amiakolfp0un6loi8puk2ug.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
