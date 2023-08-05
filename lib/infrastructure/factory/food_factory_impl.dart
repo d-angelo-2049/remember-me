@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:intl/intl.dart';
 import 'package:rememberme/domain/entity/food.dart';
 import 'package:rememberme/domain/factory/food_factory.dart';
 import 'package:rememberme/domain/value/status.dart';
@@ -30,9 +31,9 @@ class FoodFactoryImpl extends FoodFactory {
     return Food(
         documentId: foodResponse.documentId,
         name: foodResponse.data.name,
-        // TODO; ここで表示形式を Flutter UI に寄せる。  foodResponse.data.expiration.toDate(),
-        expiration: DateTime.now(),
-        // TODO; ここで Stringをbase64 denode してUIに表示できる画像の型に変換
+        // ここで Parse できる形式例 -> 2023/08/02(水) 19:17
+        expiration: DateFormat('yyyy/MM/dd(E) HH:mm', "ja_JP")
+            .parse(foodResponse.data.expiration),
         image: base64Decode(foodResponse.data.imageString),
         location: foodResponse.data.location,
         status: foodResponse.data.status);
