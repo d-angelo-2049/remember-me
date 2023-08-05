@@ -18,10 +18,7 @@ class FoodList extends ConsumerWidget {
           children: foods
               .map(
                 (e) => FoodListItem(
-                  image: e.image,
-                  name: e.name,
-                  status: e.status,
-                  expiration: e.expiration,
+                  food: e,
                 ),
               )
               .toList(),
