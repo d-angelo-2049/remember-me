@@ -11,7 +11,7 @@ class TopPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: const Text('Food Loss Reduction Application'),
+          title: const Text('FoodLoss:RememberMe'),
         ),
         body: Center(
           child: Column(

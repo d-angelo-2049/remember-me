@@ -63,7 +63,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '659242521472',
     projectId: 'food-loss-and-waste',
     storageBucket: 'food-loss-and-waste.appspot.com',
-    iosClientId: '659242521472-sl4tbt6n9pb30g1i0o8lhaoldde4g1ad.apps.googleusercontent.com',
+    iosClientId:
+        '659242521472-sl4tbt6n9pb30g1i0o8lhaoldde4g1ad.apps.googleusercontent.com',
     iosBundleId: 'com.examplesse.rememberme',
   );
 }
