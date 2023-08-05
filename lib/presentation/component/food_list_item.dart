@@ -26,7 +26,11 @@ class FoodListItem extends StatelessWidget {
       leading: CircleAvatar(backgroundImage: MemoryImage(food.image)),
       trailing: Text(food.status.value),
       onTap: () {
-        PageNavigation.push(context, UpdateItemPage(name: name, image: image, status: status));
+        PageNavigation.push(
+            context,
+            UpdateItemPage(
+              food: food,
+            ));
       },
     );
   }
