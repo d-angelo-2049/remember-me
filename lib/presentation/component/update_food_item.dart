@@ -10,26 +10,20 @@ class UpdateFoodItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.memory(food.image),
           Text(
             food.name,
             style: const TextStyle(fontWeight: FontWeight.bold),
           ),
-
-          // const SizedBox(
-          //   height: 20,
-          // ),
-
           Text(
             '期限:${food.expiration.year}年${food.expiration.month}月${food.expiration.day}日',
             style: const TextStyle(fontWeight: FontWeight.bold),
           ),
-
           const SizedBox(
             height: 20,
           ),
-
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
