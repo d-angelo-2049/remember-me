@@ -1,10 +1,13 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:rememberme/presentation/navigation/page_nagivation.dart';
 import 'package:rememberme/presentation/page/danger_list_page.dart';
 import 'package:rememberme/presentation/page/shoot_page.dart';
 
 class TopPage extends StatelessWidget {
-  const TopPage({super.key});
+  const TopPage({super.key, required this.camera});
+
+  final CameraDescription camera;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +22,11 @@ class TopPage extends StatelessWidget {
             children: <Widget>[
               OutlinedButton(
                   onPressed: () {
-                    PageNavigation.push(context, const ShootPage());
+                    PageNavigation.push(
+                        context,
+                        ShootPage(
+                          camera: camera,
+                        ));
                     print('navigate to shoot page');
                   },
                   child: const Text(
