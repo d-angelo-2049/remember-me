@@ -13,12 +13,12 @@ class FoodListNotifier extends StateNotifier<AsyncValue<List<FoodState>>> {
   FoodListNotifier({required GetFoodsUsecase getFoodsUsecase})
       : _getFoodsUsecase = getFoodsUsecase,
         super(const AsyncLoading()) {
-    _fetch();
+    fetch();
   }
 
   final GetFoodsUsecase _getFoodsUsecase;
 
-  Future<void> _fetch() async {
+  Future<void> fetch() async {
     state = await AsyncValue.guard(() async {
       final res = await _getFoodsUsecase.execute();
       return res.map((e) => FoodState.fromEntity(e)).toList();
