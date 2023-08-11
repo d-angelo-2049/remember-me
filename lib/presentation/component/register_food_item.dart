@@ -15,6 +15,7 @@ class RegisterFoodItem extends StatefulWidget {
 class _RegisterFoodItemState extends State<RegisterFoodItem> {
   late String _expirationText = '期限を入力してね';
   late String _foodName = '';
+  late String _location = '';
 
   Future<void> _showExpirationDatePicker(BuildContext context) async {
     final now = DateTime.now();
@@ -57,14 +58,25 @@ class _RegisterFoodItemState extends State<RegisterFoodItem> {
           ElevatedButton(
               onPressed: () => {_showExpirationDatePicker(context)},
               child: Text(_expirationText)),
-          const SizedBox(
-            height: 40,
+          SizedBox(
+            child: TextField(
+              textAlign: TextAlign.center,
+              decoration: const InputDecoration(
+                  border: InputBorder.none, hintText: '保管場所を入力してね'),
+              onChanged: (location) => {
+                setState(() {
+                  _location = location;
+                })
+              },
+            ),
           ),
           ElevatedButton(
-              onPressed: (_expirationText == '期限を入力してね' || (_foodName == ''))
+              onPressed: (_expirationText == '期限を入力してね' ||
+                      (_foodName == '') ||
+                      (_location == ''))
                   ? null
                   : () => {
-                        // TODO API でcreateしに行く usecase
+                        // TODO API でcreateしに行くusecase
                       },
               child: const Text(
                 '登録する',

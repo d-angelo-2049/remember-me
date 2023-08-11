@@ -22,7 +22,7 @@ class FoodListItem extends StatelessWidget {
     return ListTile(
       title: Text(food.name),
       subtitle: Text(
-          '期限:${food.expiration.year}年${food.expiration.month}月${food.expiration.day}日'),
+          '期限:${food.expiration.year}年${food.expiration.month}月${food.expiration.day}日, ${food.location}'),
       leading: CircleAvatar(backgroundImage: MemoryImage(food.image)),
       trailing: Text(food.status.value),
       onTap: () {

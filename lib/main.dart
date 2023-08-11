@@ -1,22 +1,29 @@
 import 'package:camera/camera.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:rememberme/presentation/page/top_page.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
+  // prepare
   WidgetsFlutterBinding.ensureInitialized();
   initializeDateFormatting("ja_JP");
   final cameras = await availableCameras();
-
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp, //縦固定
+  ]);
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
   runApp(
     ProviderScope(
-      child: MyApp(camera: cameras.first,),
+      child: MyApp(
+        camera: cameras.first,
+      ),
     ),
   );
 }
@@ -35,7 +42,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: TopPage(camera: camera,),
+      home: TopPage(
+        camera: camera,
+      ),
     );
   }
 }
