@@ -18,7 +18,7 @@ class UpdateFoodItem extends StatelessWidget {
             style: const TextStyle(fontWeight: FontWeight.bold),
           ),
           Text(
-            '期限:${food.expiration.year}年${food.expiration.month}月${food.expiration.day}日',
+            '期限:${food.expiration.year}年${food.expiration.month}月${food.expiration.day}日, ${food.location}',
             style: const TextStyle(fontWeight: FontWeight.bold),
           ),
           const SizedBox(

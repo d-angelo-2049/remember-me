@@ -20,7 +20,7 @@ class TopPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              OutlinedButton(
+              ElevatedButton(
                   onPressed: () {
                     PageNavigation.push(
                         context,
@@ -36,7 +36,7 @@ class TopPage extends StatelessWidget {
               const SizedBox(
                 height: 80,
               ),
-              OutlinedButton(
+              ElevatedButton(
                 onPressed: () {
                   PageNavigation.push(context, const DangerListPage());
                   print('navigate to danger list page');
