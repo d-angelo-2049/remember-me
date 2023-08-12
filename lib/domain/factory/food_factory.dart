@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:rememberme/infrastructure/model/food_response.dart';
+import 'package:rememberme/presentation/state/register_food_state.dart';
 
 import '../../infrastructure/factory/food_factory_impl.dart';
 import '../entity/food.dart';
@@ -21,4 +22,6 @@ abstract class FoodFactory {
       required Status status});
 
   Food createModel(FoodResponse foodResponse);
+
+  Future<Food> createRegisterModel(RegisterFoodState registerFoodState);
 }
