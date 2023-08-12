@@ -1,4 +1,3 @@
-import 'package:cloud_functions/cloud_functions.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../domain/entity/food.dart';
