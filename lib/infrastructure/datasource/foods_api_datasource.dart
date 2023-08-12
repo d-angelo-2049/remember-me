@@ -10,6 +10,5 @@ final foodsApiDatasourceProvider = Provider<FoodsApiDatasource>(
 
 abstract class FoodsApiDatasource {
   Future<DangerListApiResponse> getFoods();
-
   Future<String> postFood(Food food);
 }
