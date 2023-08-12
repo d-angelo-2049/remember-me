@@ -14,13 +14,13 @@ class RegisterFoodItemNotifier extends StateNotifier<RegisterFoodState> {
         super(RegisterFoodState(
             name: '',
             imagePath: '',
-            expiration: DateTime.now(),
+            expiration: '期限を入力してね',
             location: ''));
 
   final PostFoodUsecase _postFoodUsecase;
 
-  Future<void> post() async {
-    await _postFoodUsecase.execute(state);
+  Future<String> post() async {
+   return await _postFoodUsecase.execute(state);
   }
 
   void updateName(String name) {
@@ -39,7 +39,7 @@ class RegisterFoodItemNotifier extends StateNotifier<RegisterFoodState> {
         location: state.location);
   }
 
-  void updateExpiration(DateTime expiration) {
+  void updateExpiration(String expiration) {
     state = state.copyWith(
         name: state.name,
         imagePath: state.imagePath,

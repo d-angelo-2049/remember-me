@@ -27,6 +27,7 @@ class FoodsRepositoryImpl extends FoodsRepository {
 
   @override
   Future<String> postItem(RegisterFoodState registerFoodState) async {
-    return await _foodsApiDatasource.postFood(registerFoodState);
+    final food = await _foodFactory.createRegisterModel(registerFoodState);
+    return await _foodsApiDatasource.postFood(food);
   }
 }

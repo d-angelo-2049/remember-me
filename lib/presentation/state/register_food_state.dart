@@ -8,12 +8,12 @@ class RegisterFoodState with _$RegisterFoodState {
   factory RegisterFoodState({
     required String name,
     required String imagePath,
-    required DateTime expiration,
+    required String expiration,
     required String location,
   }) = _RegisterFoodState;
 
   factory RegisterFoodState.create(
-      String name, DateTime expiration, String location, String imagePath) {
+      String name, String expiration, String location, String imagePath) {
     return RegisterFoodState(
         name: name,
         expiration: expiration,

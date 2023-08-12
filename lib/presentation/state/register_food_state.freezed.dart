@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$RegisterFoodState {
   String get name => throw _privateConstructorUsedError;
   String get imagePath => throw _privateConstructorUsedError;
-  DateTime get expiration => throw _privateConstructorUsedError;
+  String get expiration => throw _privateConstructorUsedError;
   String get location => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -33,7 +33,7 @@ abstract class $RegisterFoodStateCopyWith<$Res> {
       _$RegisterFoodStateCopyWithImpl<$Res, RegisterFoodState>;
   @useResult
   $Res call(
-      {String name, String imagePath, DateTime expiration, String location});
+      {String name, String imagePath, String expiration, String location});
 }
 
 /// @nodoc
@@ -66,7 +66,7 @@ class _$RegisterFoodStateCopyWithImpl<$Res, $Val extends RegisterFoodState>
       expiration: null == expiration
           ? _value.expiration
           : expiration // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as String,
       location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -84,7 +84,7 @@ abstract class _$$_RegisterFoodStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String name, String imagePath, DateTime expiration, String location});
+      {String name, String imagePath, String expiration, String location});
 }
 
 /// @nodoc
@@ -115,7 +115,7 @@ class __$$_RegisterFoodStateCopyWithImpl<$Res>
       expiration: null == expiration
           ? _value.expiration
           : expiration // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as String,
       location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -138,7 +138,7 @@ class _$_RegisterFoodState implements _RegisterFoodState {
   @override
   final String imagePath;
   @override
-  final DateTime expiration;
+  final String expiration;
   @override
   final String location;
 
@@ -177,7 +177,7 @@ abstract class _RegisterFoodState implements RegisterFoodState {
   factory _RegisterFoodState(
       {required final String name,
       required final String imagePath,
-      required final DateTime expiration,
+      required final String expiration,
       required final String location}) = _$_RegisterFoodState;
 
   @override
@@ -185,7 +185,7 @@ abstract class _RegisterFoodState implements RegisterFoodState {
   @override
   String get imagePath;
   @override
-  DateTime get expiration;
+  String get expiration;
   @override
   String get location;
   @override
