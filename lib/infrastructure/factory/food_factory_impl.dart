@@ -33,7 +33,7 @@ class FoodFactoryImpl extends FoodFactory {
     return Food(
         documentId: foodResponse.documentId,
         name: foodResponse.data.name,
-        // ここで Parse できる形式例 -> 2023/08/02(水) 19:17
+        // ここで Parse できる形式例 -> 2023/08/02(水)
         expiration: DateFormat('yyyy/MM/dd(E)', "ja_JP")
             .parse(foodResponse.data.expiration),
         image: base64Decode(foodResponse.data.imageString),
