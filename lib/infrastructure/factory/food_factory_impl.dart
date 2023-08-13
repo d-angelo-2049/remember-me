@@ -6,6 +6,7 @@ import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:rememberme/domain/entity/food.dart';
 import 'package:rememberme/domain/factory/food_factory.dart';
 import 'package:rememberme/domain/value/status.dart';
+import 'package:rememberme/presentation/state/food_state.dart';
 import 'package:rememberme/presentation/state/register_food_state.dart';
 
 import '../model/food_response.dart';
@@ -29,7 +30,7 @@ class FoodFactoryImpl extends FoodFactory {
   }
 
   @override
-  Food createModel(FoodResponse foodResponse) {
+  Food createListModel(FoodResponse foodResponse) {
     return Food(
         documentId: foodResponse.documentId,
         name: foodResponse.data.name,
@@ -56,5 +57,16 @@ class FoodFactoryImpl extends FoodFactory {
         image: result!,
         location: registerFoodState.location,
         status: Status.unconsume);
+  }
+
+  @override
+  Food createUpdateModel(FoodState foodState, Status updatedStatus) {
+    return Food(
+        documentId: foodState.documentId,
+        name: foodState.name,
+        expiration: foodState.expiration,
+        image: foodState.image,
+        location: foodState.location,
+        status: updatedStatus);
   }
 }
