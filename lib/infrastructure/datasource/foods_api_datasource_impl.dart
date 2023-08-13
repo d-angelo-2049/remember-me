@@ -43,11 +43,6 @@ class FoodsApiDatasourceImpl extends FoodsApiDatasource {
 
     final result = await callable.call(<String, dynamic>{
       'documentId': food.documentId,
-      // 'name': food.name,
-      // 'expiration':
-      // DateFormat('yyyy/MM/dd(E)', "ja_JP").format(food.expiration),
-      // 'location': food.location,
-      // 'imageString': base64Encode(food.image),
       'status': food.status.value
     });
 
