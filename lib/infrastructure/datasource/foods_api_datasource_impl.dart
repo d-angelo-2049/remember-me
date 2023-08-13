@@ -34,4 +34,18 @@ class FoodsApiDatasourceImpl extends FoodsApiDatasource {
 
     return result.data['documentId'];
   }
+
+  @override
+  Future<String> updateFood(Food food) async {
+    HttpsCallable callable =
+        FirebaseFunctions.instanceFor(region: 'us-central1')
+            .httpsCallable('updateFood');
+
+    final result = await callable.call(<String, dynamic>{
+      'documentId': food.documentId,
+      'status': food.status.value
+    });
+
+    return result.data.toString();
+  }
 }

@@ -1,13 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:rememberme/domain/value/status.dart';
 import 'package:rememberme/presentation/state/food_state.dart';
 
-class UpdateFoodItem extends StatelessWidget {
+import '../navigation/page_nagivation.dart';
+import '../notifier/food_list_notifier.dart';
+
+class UpdateFoodItem extends ConsumerWidget {
   const UpdateFoodItem({super.key, required this.food});
 
   final FoodState food;
 
+  Future<void> updateStatus(
+      BuildContext context, WidgetRef ref, Status status) async {
+    final notifier = ref.read(foodListNotifierProvider.notifier);
+    showDialog(
+        context: context,
+        builder: (_) => const Center(child: CircularProgressIndicator()));
+
+    await notifier.updateItem(food, status);
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('更新しました！!'),
+      ),
+    );
+
+    PageNavigation.popUntil(context, 3);
+  }
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final notifier = ref.read(foodListNotifierProvider.notifier);
+
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -28,8 +53,8 @@ class UpdateFoodItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
-                onPressed: () {
-                  //TODO: update API しに行く
+                onPressed: () async {
+                  await updateStatus(context, ref, Status.consumed);
                 },
                 style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.blue,
@@ -43,8 +68,8 @@ class UpdateFoodItem extends StatelessWidget {
                 width: 20,
               ),
               ElevatedButton(
-                onPressed: () {
-                  // TODO: update API しに行く
+                onPressed: () async {
+                  await updateStatus(context, ref, Status.loss);
                 },
                 style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.red,
