@@ -11,29 +11,34 @@ class FoodList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final notifier = ref.watch(foodListNotifierProvider.notifier);
     final state = ref.watch(foodListNotifierProvider);
-    return state.when(
-      data: (foods) {
-        return ListView(
-          children: foods
-              .map(
-                (e) => FoodListItem(
-                  food: e,
-                ),
-              )
-              .toList(),
-        );
-      },
-      error: (error, _) {
-        return Center(
-          child: Text(error.toString()),
-        );
-      },
-      loading: () {
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
-      },
-    );
+    return RefreshIndicator(
+        onRefresh: () async {
+          await notifier.fetch();
+        },
+        child: state.when(
+          data: (foods) {
+            return ListView(
+              children: foods
+                  .map(
+                    (e) => FoodListItem(
+                      food: e,
+                    ),
+                  )
+                  .toList(),
+            );
+          },
+          error: (error, _) {
+            return Center(
+              child: Text(error.toString()),
+            );
+          },
+          loading: () {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          },
+        ));
   }
 }

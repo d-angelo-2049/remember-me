@@ -30,8 +30,6 @@ class RegisterFoodItem extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(registerFoodItemNotifierProvider);
     final notifier = ref.read(registerFoodItemNotifierProvider.notifier);
-    //notifier.updateImagePath(imagePath);
-
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -77,9 +75,8 @@ class RegisterFoodItem extends ConsumerWidget {
                             content: Text('登録しました！!'),
                           ),
                         ),
-
-              PageNavigation.popUntil(context, 3)
-                        },
+                        PageNavigation.popUntil(context, 3)
+                      },
               child: const Text(
                 '登録する',
                 style: TextStyle(fontWeight: FontWeight.bold),

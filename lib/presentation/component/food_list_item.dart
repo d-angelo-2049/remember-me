@@ -10,12 +10,18 @@ import 'package:rememberme/presentation/state/food_state.dart';
 import '../../domain/value/status.dart';
 
 class FoodListItem extends StatelessWidget {
-  const FoodListItem({
+  FoodListItem({
     super.key,
     required this.food,
   });
 
   final FoodState food;
+
+  final Map<Status, String> matchStatus = {
+    Status.unconsume: '未消費',
+    Status.consumed: '消費済',
+    Status.loss: '廃棄済'
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +30,10 @@ class FoodListItem extends StatelessWidget {
       subtitle: Text(
           '期限:${food.expiration.year}年${food.expiration.month}月${food.expiration.day}日, ${food.location}'),
       leading: CircleAvatar(backgroundImage: MemoryImage(food.image)),
-      trailing: Text(food.status.value),
+      trailing: Text(
+        matchStatus[food.status] ?? '不明',
+        style: const TextStyle(fontWeight: FontWeight.bold),
+      ),
       onTap: () {
         PageNavigation.push(
             context,
